@@ -1,0 +1,485 @@
+[
+  {
+    "id": 1,
+    "name": "Morgan Franklin",
+    "age": 28,
+    "gender": "F",
+    "team": "Jersey City Masters Swimming",
+    "ageGroup": "25-29",
+    "email": "morgan.franklin@email.com"
+  },
+  {
+    "id": 2,
+    "name": "Katie Ledecky",
+    "age": 28,
+    "gender": "F",
+    "team": "Stanford Swimming",
+    "ageGroup": "25-29",
+    "email": "kledecky@stanford.edu"
+  },
+  {
+    "id": 3,
+    "name": "Caeleb Dressel",
+    "age": 29,
+    "gender": "M",
+    "team": "Gator Swim Club",
+    "ageGroup": "25-29",
+    "email": "cdressel@gators.com"
+  },
+  {
+    "id": 4,
+    "name": "Sarah Johnson",
+    "age": 24,
+    "gender": "F",
+    "team": "NYC Aquatics Masters",
+    "ageGroup": "18-24",
+    "email": "sjohnson@email.com"
+  },
+  {
+    "id": 5,
+    "name": "Michael Chen",
+    "age": 32,
+    "gender": "M",
+    "team": "Brooklyn Dolphins",
+    "ageGroup": "30-34",
+    "email": "mchen@email.com"
+  },
+  {
+    "id": 6,
+    "name": "Michael Phelps",
+    "age": 40,
+    "gender": "M",
+    "team": "North Baltimore Aquatic Club",
+    "ageGroup": "40-44",
+    "email": "mphelps@email.com"
+  },
+  {
+    "id": 7,
+    "name": "Dara Torres",
+    "age": 58,
+    "gender": "F",
+    "team": "Boston College",
+    "ageGroup": "55-60",
+    "email": "dTorres@bcollege.edu"
+  },
+  {
+    "name": "Test Swimmer",
+    "age": 25,
+    "gender": "M",
+    "team": "Test Team",
+    "email": "test@swimmer.com",
+    "id": 8,
+    "ageGroup": "25-29"
+  },
+  {
+    "name": "Young Swimmer",
+    "age": 15,
+    "gender": "F",
+    "team": "Youth Team",
+    "id": 9,
+    "ageGroup": "Youth"
+  },
+  {
+    "name": "Swimmer Age 20",
+    "age": 20,
+    "gender": "M",
+    "team": "Test Team",
+    "id": 10,
+    "ageGroup": "18-24"
+  },
+  {
+    "name": "Swimmer Age 27",
+    "age": 27,
+    "gender": "M",
+    "team": "Test Team",
+    "id": 11,
+    "ageGroup": "25-29"
+  },
+  {
+    "name": "Swimmer Age 32",
+    "age": 32,
+    "gender": "M",
+    "team": "Test Team",
+    "id": 12,
+    "ageGroup": "30-34"
+  },
+  {
+    "name": "Swimmer Age 37",
+    "age": 37,
+    "gender": "M",
+    "team": "Test Team",
+    "id": 13,
+    "ageGroup": "35-39"
+  },
+  {
+    "name": "Swimmer Age 42",
+    "age": 42,
+    "gender": "M",
+    "team": "Test Team",
+    "id": 14,
+    "ageGroup": "40-44"
+  },
+  {
+    "name": "Swimmer Age 47",
+    "age": 47,
+    "gender": "M",
+    "team": "Test Team",
+    "id": 15,
+    "ageGroup": "45-49"
+  },
+  {
+    "name": "Swimmer Age 52",
+    "age": 52,
+    "gender": "M",
+    "team": "Test Team",
+    "id": 16,
+    "ageGroup": "50-54"
+  },
+  {
+    "name": "Swimmer Age 57",
+    "age": 57,
+    "gender": "M",
+    "team": "Test Team",
+    "id": 17,
+    "ageGroup": "55-59"
+  },
+  {
+    "name": "Swimmer Age 62",
+    "age": 62,
+    "gender": "M",
+    "team": "Test Team",
+    "id": 18,
+    "ageGroup": "60-64"
+  },
+  {
+    "name": "Swimmer Age 67",
+    "age": 67,
+    "gender": "M",
+    "team": "Test Team",
+    "id": 19,
+    "ageGroup": "65-69"
+  },
+  {
+    "name": "Swimmer Age 75",
+    "age": 75,
+    "gender": "M",
+    "team": "Test Team",
+    "id": 20,
+    "ageGroup": "70+"
+  },
+  {
+    "name": "Test Swimmer",
+    "age": 25,
+    "gender": "M",
+    "team": "Test Team",
+    "email": "test@swimmer.com",
+    "id": 21,
+    "ageGroup": "25-29"
+  },
+  {
+    "name": "Young Swimmer",
+    "age": 15,
+    "gender": "F",
+    "team": "Youth Team",
+    "id": 22,
+    "ageGroup": "Youth"
+  },
+  {
+    "name": "Swimmer Age 20",
+    "age": 20,
+    "gender": "M",
+    "team": "Test Team",
+    "id": 23,
+    "ageGroup": "18-24"
+  },
+  {
+    "name": "Swimmer Age 27",
+    "age": 27,
+    "gender": "M",
+    "team": "Test Team",
+    "id": 24,
+    "ageGroup": "25-29"
+  },
+  {
+    "name": "Swimmer Age 32",
+    "age": 32,
+    "gender": "M",
+    "team": "Test Team",
+    "id": 25,
+    "ageGroup": "30-34"
+  },
+  {
+    "name": "Swimmer Age 37",
+    "age": 37,
+    "gender": "M",
+    "team": "Test Team",
+    "id": 26,
+    "ageGroup": "35-39"
+  },
+  {
+    "name": "Swimmer Age 42",
+    "age": 42,
+    "gender": "M",
+    "team": "Test Team",
+    "id": 27,
+    "ageGroup": "40-44"
+  },
+  {
+    "name": "Swimmer Age 47",
+    "age": 47,
+    "gender": "M",
+    "team": "Test Team",
+    "id": 28,
+    "ageGroup": "45-49"
+  },
+  {
+    "name": "Swimmer Age 52",
+    "age": 52,
+    "gender": "M",
+    "team": "Test Team",
+    "id": 29,
+    "ageGroup": "50-54"
+  },
+  {
+    "name": "Swimmer Age 57",
+    "age": 57,
+    "gender": "M",
+    "team": "Test Team",
+    "id": 30,
+    "ageGroup": "55-59"
+  },
+  {
+    "name": "Swimmer Age 62",
+    "age": 62,
+    "gender": "M",
+    "team": "Test Team",
+    "id": 31,
+    "ageGroup": "60-64"
+  },
+  {
+    "name": "Swimmer Age 67",
+    "age": 67,
+    "gender": "M",
+    "team": "Test Team",
+    "id": 32,
+    "ageGroup": "65-69"
+  },
+  {
+    "name": "Swimmer Age 75",
+    "age": 75,
+    "gender": "M",
+    "team": "Test Team",
+    "id": 33,
+    "ageGroup": "70+"
+  },
+  {
+    "name": "Test Swimmer",
+    "age": 25,
+    "gender": "M",
+    "team": "Test Team",
+    "email": "test@swimmer.com",
+    "id": 34,
+    "ageGroup": "25-29"
+  },
+  {
+    "name": "Young Swimmer",
+    "age": 15,
+    "gender": "F",
+    "team": "Youth Team",
+    "id": 35,
+    "ageGroup": "Youth"
+  },
+  {
+    "name": "Swimmer Age 20",
+    "age": 20,
+    "gender": "M",
+    "team": "Test Team",
+    "id": 36,
+    "ageGroup": "18-24"
+  },
+  {
+    "name": "Swimmer Age 27",
+    "age": 27,
+    "gender": "M",
+    "team": "Test Team",
+    "id": 37,
+    "ageGroup": "25-29"
+  },
+  {
+    "name": "Swimmer Age 32",
+    "age": 32,
+    "gender": "M",
+    "team": "Test Team",
+    "id": 38,
+    "ageGroup": "30-34"
+  },
+  {
+    "name": "Swimmer Age 37",
+    "age": 37,
+    "gender": "M",
+    "team": "Test Team",
+    "id": 39,
+    "ageGroup": "35-39"
+  },
+  {
+    "name": "Swimmer Age 42",
+    "age": 42,
+    "gender": "M",
+    "team": "Test Team",
+    "id": 40,
+    "ageGroup": "40-44"
+  },
+  {
+    "name": "Swimmer Age 47",
+    "age": 47,
+    "gender": "M",
+    "team": "Test Team",
+    "id": 41,
+    "ageGroup": "45-49"
+  },
+  {
+    "name": "Swimmer Age 52",
+    "age": 52,
+    "gender": "M",
+    "team": "Test Team",
+    "id": 42,
+    "ageGroup": "50-54"
+  },
+  {
+    "name": "Swimmer Age 57",
+    "age": 57,
+    "gender": "M",
+    "team": "Test Team",
+    "id": 43,
+    "ageGroup": "55-59"
+  },
+  {
+    "name": "Swimmer Age 62",
+    "age": 62,
+    "gender": "M",
+    "team": "Test Team",
+    "id": 44,
+    "ageGroup": "60-64"
+  },
+  {
+    "name": "Swimmer Age 67",
+    "age": 67,
+    "gender": "M",
+    "team": "Test Team",
+    "id": 45,
+    "ageGroup": "65-69"
+  },
+  {
+    "name": "Swimmer Age 75",
+    "age": 75,
+    "gender": "M",
+    "team": "Test Team",
+    "id": 46,
+    "ageGroup": "70+"
+  },
+  {
+    "name": "Test Swimmer",
+    "age": 25,
+    "gender": "M",
+    "team": "Test Team",
+    "email": "test@swimmer.com",
+    "id": 47,
+    "ageGroup": "25-29"
+  },
+  {
+    "name": "Young Swimmer",
+    "age": 15,
+    "gender": "F",
+    "team": "Youth Team",
+    "id": 48,
+    "ageGroup": "Youth"
+  },
+  {
+    "name": "Swimmer Age 20",
+    "age": 20,
+    "gender": "M",
+    "team": "Test Team",
+    "id": 49,
+    "ageGroup": "18-24"
+  },
+  {
+    "name": "Swimmer Age 27",
+    "age": 27,
+    "gender": "M",
+    "team": "Test Team",
+    "id": 50,
+    "ageGroup": "25-29"
+  },
+  {
+    "name": "Swimmer Age 32",
+    "age": 32,
+    "gender": "M",
+    "team": "Test Team",
+    "id": 51,
+    "ageGroup": "30-34"
+  },
+  {
+    "name": "Swimmer Age 37",
+    "age": 37,
+    "gender": "M",
+    "team": "Test Team",
+    "id": 52,
+    "ageGroup": "35-39"
+  },
+  {
+    "name": "Swimmer Age 42",
+    "age": 42,
+    "gender": "M",
+    "team": "Test Team",
+    "id": 53,
+    "ageGroup": "40-44"
+  },
+  {
+    "name": "Swimmer Age 47",
+    "age": 47,
+    "gender": "M",
+    "team": "Test Team",
+    "id": 54,
+    "ageGroup": "45-49"
+  },
+  {
+    "name": "Swimmer Age 52",
+    "age": 52,
+    "gender": "M",
+    "team": "Test Team",
+    "id": 55,
+    "ageGroup": "50-54"
+  },
+  {
+    "name": "Swimmer Age 57",
+    "age": 57,
+    "gender": "M",
+    "team": "Test Team",
+    "id": 56,
+    "ageGroup": "55-59"
+  },
+  {
+    "name": "Swimmer Age 62",
+    "age": 62,
+    "gender": "M",
+    "team": "Test Team",
+    "id": 57,
+    "ageGroup": "60-64"
+  },
+  {
+    "name": "Swimmer Age 67",
+    "age": 67,
+    "gender": "M",
+    "team": "Test Team",
+    "id": 58,
+    "ageGroup": "65-69"
+  },
+  {
+    "name": "Swimmer Age 75",
+    "age": 75,
+    "gender": "M",
+    "team": "Test Team",
+    "id": 59,
+    "ageGroup": "70+"
+  }
+]

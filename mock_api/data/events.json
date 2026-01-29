@@ -1,0 +1,76 @@
+[
+  {
+    "id": 1,
+    "name": "50m Freestyle",
+    "code": "50free",
+    "distance": 50,
+    "stroke": "freestyle",
+    "pool": "SCM"
+  },
+  {
+    "id": 2,
+    "name": "100m Freestyle",
+    "code": "100free",
+    "distance": 100,
+    "stroke": "freestyle",
+    "pool": "SCM"
+  },
+  {
+    "id": 3,
+    "name": "200m Freestyle",
+    "code": "200free",
+    "distance": 200,
+    "stroke": "freestyle",
+    "pool": "SCM"
+  },
+{
+    "id": 4,
+    "name": "1500m Freestyle",
+    "code": "1500free",
+    "distance": 1500,
+    "stroke": "freestyle",
+    "pool": "SCM"
+  },
+  {
+    "id": 5,
+    "name": "100m Backstroke",
+    "code": "100back",
+    "distance": 100,
+    "stroke": "backstroke",
+    "pool": "SCM"
+  },
+  {
+    "id": 6,
+    "name": "100m Breaststroke",
+    "code": "100breast",
+    "distance": 100,
+    "stroke": "breaststroke",
+    "pool": "SCM"
+  },
+  {
+    "id": 7,
+    "name": "100m Butterfly",
+    "code": "100fly",
+    "distance": 100,
+    "stroke": "butterfly",
+    "pool": "SCM"
+  }
+,
+  {
+    "id": 8,
+    "name": "200m Individual Medley",
+    "code": "200IM",
+    "distance": 200,
+    "stroke": "im",
+    "pool": "SCM"
+  }
+,
+  {
+    "id": 9,
+    "name": "400m Individual Medley",
+    "code": "400IM",
+    "distance": 400,
+    "stroke": "im",
+    "pool": "SCM"
+  }
+]

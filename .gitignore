@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+env/
+*.egg-info/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+reports/
+
+# IDE
+.vscode/
+.idea/
+.DS_Store
+
+# Mock API
+mock_api/__pycache__/
