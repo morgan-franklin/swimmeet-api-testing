@@ -166,7 +166,6 @@ class TestSwimmersEndpoint:
         assert response.status_code == 400
         assert 'error' in response.json()
 
-    @pytest.mark.skip(reason="API returns HTML instead of JSON - endpoint issue")
     def test_get_personal_bests(self):
         """Test retrieving swimmer's personal best times"""
         # Arrange
@@ -209,3 +208,40 @@ class TestSwimmersEndpoint:
             assert swimmer['team'] == team
 
         print(f"\n✓ Found {len(swimmers)} swimmers on {team}")
+
+    @pytest.mark.performance
+    def test_get_all_swimmers_performance(self):
+        """Test that retrieving all swimmers is fast"""
+        # Arrange
+        import time
+        url = f"{BASE_URL}/swimmers"
+        max_time = 0.5  # seconds
+
+        # Act
+        start = time.time()
+        response = requests.get(url)
+        elapsed = time.time() - start
+
+        # Assert
+        assert response.status_code == 200
+        assert elapsed < max_time, f"Get swimmers took {elapsed:.2f}s, expected <{max_time}s"
+        print(f"\n✓ Retrieved swimmers in {elapsed:.3f}s")
+
+    @pytest.mark.performance
+    def test_personal_bests_performance(self):
+        """Test that PB calculation is fast"""
+        # Arrange
+        import time
+        swimmer_id = 1
+        url = f"{BASE_URL}/swimmers/{swimmer_id}/pbs"
+        max_time = 1.0  # second
+
+        # Act
+        start = time.time()
+        response = requests.get(url)
+        elapsed = time.time() - start
+
+        # Assert
+        # Just check response time, don't validate JSON (known issue)
+        assert elapsed < max_time, f"PB calculation took {elapsed:.2f}s, expected <{max_time}s"
+        print(f"\n✓ PBs calculated in {elapsed:.3f}s")

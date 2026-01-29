@@ -71,14 +71,15 @@ class TestRacesEndpoint:
         assert response.status_code == 400
         assert 'error' in response.json()
 
-    @pytest.mark.skip(reason="Data persistence issue - swimmer may have existing races from previous runs")
     def test_personal_best_detection_first_time(self):
         """Test that first swim in an event is marked as PB"""
         # Arrange
         url = f"{BASE_URL}/races"
+
+        # Use a high swimmer_id that definitely doesn't exist
         first_swim = {
-            'swimmer_id': 5,
-            'event': '50back',  # Event Michael hasn't swum before
+            'swimmer_id': 992,
+            'event': '50back',
             'time': '30.50',
             'meet_id': 1
         }
@@ -89,24 +90,30 @@ class TestRacesEndpoint:
 
         # Assert
         assert response.status_code == 201
-        assert result['isPB'] == True  # First swim should always be PB
+        assert result['isPB'] == True, f"First swim should be PB, but got isPB={result['isPB']}"
 
-    @pytest.mark.skip(reason="Data persistence issue - affected by previous test runs")
     def test_personal_best_detection_faster_time(self):
         """Test that faster time is marked as PB"""
-        # First, submit a baseline time
+        # Arrange
         url = f"{BASE_URL}/races"
+
+        # Use unique high swimmer_id
+        swimmer_id = 991
+
+        # First, submit a baseline time
         baseline = {
-            'swimmer_id': 4,
+            'swimmer_id': swimmer_id,
             'event': '50free',
             'time': '26.50',
             'meet_id': 1
         }
-        requests.post(url, json=baseline)
+        baseline_response = requests.post(url, json=baseline)
+        assert baseline_response.status_code == 201
+        assert baseline_response.json()['isPB'] == True, "First swim should be PB"
 
         # Then submit a faster time
         faster_time = {
-            'swimmer_id': 4,
+            'swimmer_id': swimmer_id,
             'event': '50free',
             'time': '25.80',  # Faster!
             'meet_id': 2
@@ -117,7 +124,8 @@ class TestRacesEndpoint:
         result = response.json()
 
         # Assert
-        assert result['isPB'] == True
+        assert response.status_code == 201
+        assert result['isPB'] == True, f"Faster time should be PB, got isPB={result['isPB']}"
         print(f"\n✓ New PB detected: {result['time']}")
 
     def test_filter_races_by_event(self):
@@ -218,3 +226,37 @@ class TestRacesEndpoint:
             seconds = float(parts[1])
             return minutes * 60 + seconds
         return float(time_str)
+
+    @pytest.mark.performance
+    def test_rankings_performance(self):
+        """Test rankings calculation performance"""
+        import time
+        url = f"{BASE_URL}/rankings?event=50free"
+
+        start = time.time()
+        response = requests.get(url)
+        elapsed = time.time() - start
+
+        assert response.status_code == 200
+        assert elapsed < 2.0, f"Took {elapsed:.2f}s, should be <2s"
+        print(f"\n✓ Rankings: {elapsed:.3f}s")
+
+    @pytest.mark.performance
+    def test_race_submission_performance(self):
+        """Test race submission performance"""
+        import time
+        url = f"{BASE_URL}/races"
+        race = {
+            'swimmer_id': 1,
+            'event': '50free',
+            'time': '24.99',
+            'meet_id': 99
+        }
+
+        start = time.time()
+        response = requests.post(url, json=race)
+        elapsed = time.time() - start
+
+        assert response.status_code == 201
+        assert elapsed < 1.0, f"Took {elapsed:.2f}s, should be <1s"
+        print(f"\n✓ Submit: {elapsed:.3f}s")

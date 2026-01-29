@@ -134,32 +134,48 @@ swimmeet-api-testing/
 └── README.md
 ```
 
-## 🏊 Sample Test Scenarios
+## 📊 Test Reports
 
-### Realistic Swim Times
-Tests validate that swim times are realistic for each event:
-- 50m Freestyle: 20-30 seconds (masters age group)
-- 100m Freestyle: 45-70 seconds
-- 200m Freestyle: 1:40-2:30
-- 1500m Freestyle: 
+### HTML Test Report
 
-### Personal Best Detection
-Automatically detects when a swim is a personal best:
-```python
-# First swim in event → Always PB
-# Faster than previous → PB
-# Slower than previous → Not PB
+After running tests, view the comprehensive HTML report:
+```bash
+# Generate report
+pytest --html=reports/test_report.html --self-contained-html -v
+
+# Open report
+open reports/test_report.html
 ```
 
-### Age Group Calculation
-Automatically assigns swimmers to age groups:
-- Youth (< 18)
-- 18-24, 25-29, 30-34, 35-39, 40-44, 45-49, 50-54, 55-59, 60-64, 65-69, 70+
+**Report includes:**
+- ✅ All test results with pass/fail status
+- ✅ Execution time for each test
+- ✅ Test categories (markers)
+- ✅ Error details for any failures
+- ✅ Environment information
+
+### Latest Test Results
+
+**Date:** January 29, 2026  
+**Total Tests:** 45  
+**Passed:** 45 (100%) ✅  
+**Failed:** 0  
+**Skipped:** 0  
+**Execution Time:** <1 second  
+
+![Test Results](screenshots/test_results_45_passing.png)
+![Test Results](screenshots/final_test_results_45_passing.png)
+
+### Test Report Location
+
+Reports are generated in the `reports/` directory:
+- `test_report.html` - Latest test run
+- `final_report_45_tests.html` - Final comprehensive report
+
+*Note: Reports are git-ignored as they're regenerated on each run.*
 
 ## 📈 Coming Soon
 
-- [ ] Integration tests (full meet workflow)
-- [ ] Performance tests (response time validation)
 - [ ] Meet management endpoints
 - [ ] Relay event support
 - [ ] CI/CD with GitHub Actions

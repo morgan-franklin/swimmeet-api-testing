@@ -174,6 +174,7 @@ def handle_races():
 
 @app.route('/api/rankings', methods=['GET'])
 def get_rankings():
+    """Get rankings/leaderboard for an event"""
 
     event = request.args.get('event')
     gender = request.args.get('gender')
@@ -182,42 +183,94 @@ def get_rankings():
     if not event:
         return jsonify({'error': 'Event parameter required'}), 400
 
+    # Filter races by event
     event_races = [r for r in races if r['event'] == event]
 
+    # Get best time per swimmer
     best_times = {}
     for race in event_races:
         sid = race['swimmer_id']
-        seconds = time_to_seconds(race['time'])
+        time_seconds = time_to_seconds(race['time'])
 
-        if sid not in best_times or seconds < best_times[sid]['seconds']:
-            best_times[sid] = {'time': race['time'], 'seconds': seconds}
+        if sid not in best_times or time_seconds < best_times[sid]['seconds']:
+            best_times[sid] = {
+                'time': race['time'],
+                'seconds': time_seconds,
+                'meet': race.get('meet_name', 'Unknown'),
+                'date': race.get('date', 'Unknown')
+            }
 
+    # Build rankings
     rankings = []
-    for sid, data in best_times.items():
+    for sid, time_data in best_times.items():
         swimmer = next((s for s in swimmers if s['id'] == sid), None)
         if not swimmer:
             continue
+
+        # Apply filters
         if gender and swimmer['gender'] != gender:
             continue
         if age_group and swimmer.get('ageGroup') != age_group:
             continue
 
         rankings.append({
-            'rank': 0,
+            'rank': 0,  # Will be set after sorting
             'swimmer_id': sid,
             'name': swimmer['name'],
             'team': swimmer['team'],
-            'time': data['time']
+            'age': swimmer['age'],
+            'ageGroup': swimmer.get('ageGroup', 'Unknown'),  # ⭐ ADD THIS
+            'time': time_data['time'],
+            'meet': time_data['meet'],
+            'date': time_data['date']
         })
 
+    # Sort by time and assign ranks
     rankings.sort(key=lambda x: time_to_seconds(x['time']))
-    for i, r in enumerate(rankings):
-        r['rank'] = i + 1
+    for i, ranking in enumerate(rankings):
+        ranking['rank'] = i + 1
 
-    if not rankings:
-        return jsonify([]), 200
+    return jsonify(rankings)
 
-    return jsonify(rankings), 200
+
+# ============================================================================
+# PBS ENDPOINT
+# ============================================================================
+
+@app.route('/api/swimmers/<int:swimmer_id>/pbs', methods=['GET'])
+def get_personal_bests(swimmer_id):
+    """Get swimmer's personal best times"""
+
+    swimmer_races = [r for r in races if r['swimmer_id'] == swimmer_id]
+
+    if not swimmer_races:
+        return jsonify({})
+
+    # Calculate PBs per event
+    pbs = {}
+    for race in swimmer_races:
+        event = race['event']
+        time = race['time']
+
+        # Convert time to seconds for comparison
+        time_seconds = time_to_seconds(time)
+
+        if event not in pbs:
+            pbs[event] = {
+                'time': time,
+                'meet': race.get('meet_name', 'Unknown'),
+                'date': race.get('date', 'Unknown')
+            }
+        else:
+            pb_seconds = time_to_seconds(pbs[event]['time'])
+            if time_seconds < pb_seconds:
+                pbs[event] = {
+                    'time': time,
+                    'meet': race.get('meet_name', 'Unknown'),
+                    'date': race.get('date', 'Unknown')
+                }
+
+    return jsonify(pbs)
 
 
 # ============================================================================

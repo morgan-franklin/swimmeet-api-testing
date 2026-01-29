@@ -10,7 +10,10 @@ env/
 .pytest_cache/
 .coverage
 htmlcov/
-reports/
+reports/*.html
+!reports/final_report_45_tests.html
+*.log
+.tox/
 
 # IDE
 .vscode/
